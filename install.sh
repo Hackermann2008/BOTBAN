@@ -12,7 +12,7 @@ import time
 import random
 import os
 
-ALVO = "mayraaparecida23"
+ALVO = "brumadodeacucar"
 
 def get_sessionid():
     sid_file = "/data/data/com.termux/files/usr/bin/session.txt"
