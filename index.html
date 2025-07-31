@@ -4,32 +4,49 @@
   <title>🔑 Obter sessionid do Instagram</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
-    button { padding: 15px 30px; font-size: 18px; margin: 20px; }
-    #output { margin: 20px; padding: 15px; background: #f0f0f0; border-radius: 8px; }
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    .step { margin: 20px 0; padding: 15px; background: #f0f0f0; border-radius: 8px; }
+    code { background: #ddd; padding: 2px 6px; border-radius: 4px; }
   </style>
 </head>
 <body>
   <h1>🔑 Obter sessionid do Instagram</h1>
-  <p>1. Faça login no <a href="https://instagram.com" target="_blank">Instagram</a><br>
-     2. Volte para esta página<br>
-     3. Clique no botão abaixo</p>
+  <p><strong>Este site não pode copiar automaticamente o sessionid por questões de segurança do Instagram.</strong></p>
+  <p>Siga o passo a passo abaixo no <strong>Kiwi Browser</strong> (obrigatório):</p>
 
-  <button onclick="copiar()">Obter sessionid</button>
-  <div id="output"></div>
+  <div class="step">
+    <h3>1. Abra o Kiwi Browser</h3>
+    <p>Se não tem, baixe na Play Store: <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser" target="_blank">Kiwi Browser</a></p>
+  </div>
 
-  <script>
-    function copiar() {
-      const sid = document.cookie.split('; ').find(row => row.startsWith('sessionid='))?.split('=')[1];
-      const output = document.getElementById('output');
-      if (sid) {
-        navigator.clipboard.writeText(sid).then(() => {
-          output.innerHTML = `<strong>✅ Copiado!</strong><br><small>Cole no Termux.</small><br><code>${sid}</code>`;
-        });
-      } else {
-        output.innerHTML = `<span style="color: red;">❌ Não encontrado. Você está logado?</span>`;
-      }
-    }
-  </script>
+  <div class="step">
+    <h3>2. Faça login no Instagram</h3>
+    <p>Acesse: <a href="https://instagram.com" target="_blank">https://instagram.com</a> e faça login com sua conta secundária.</p>
+  </div>
+
+  <div class="step">
+    <h3>3. Abra as ferramentas de desenvolvedor</h3>
+    <p>Na barra de endereços, digite:</p>
+    <code>chrome://inspect</code>
+    <p>Clique em <strong>inspect</strong> ao lado de "instagram.com"</p>
+  </div>
+
+  <div class="step">
+    <h3>4. Vá para a aba <strong>Application</strong> (ou Storage)</h3>
+    <p>No painel esquerdo, clique em:</p>
+    <code>Cookies → https://www.instagram.com</code>
+  </div>
+
+  <div class="step">
+    <h3>5. Encontre o <code>sessionid</code></h3>
+    <p>Clique no valor do cookie <strong>sessionid</strong> e copie tudo.</p>
+  </div>
+
+  <div class="step">
+    <h3>6. Cole no Termux</h3>
+    <p>Quando o script pedir, cole o <code>sessionid</code> e pressione Enter.</p>
+  </div>
+
+  <p>✅ Pronto! O script começará a denunciar automaticamente.</p>
 </body>
 </html>
